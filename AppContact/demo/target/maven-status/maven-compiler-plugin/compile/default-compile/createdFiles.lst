@@ -1,0 +1,4 @@
+com\example\ApplicationContact\web\ContactRestService.class
+com\example\ApplicationContact\DemoApplication.class
+com\example\ApplicationContact\Repository\ContactRepository.class
+com\example\ApplicationContact\Entities\Contact.class
