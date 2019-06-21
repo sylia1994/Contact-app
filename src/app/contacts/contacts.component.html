@@ -1,0 +1,54 @@
+<p></p>
+<div class="container spacer">
+  <div class="card">
+    <h5 class="card-header ">Liste des contacts</h5>
+    <div class="card-body">
+      <label>Mot Clé:</label>
+      <input type="text" [(ngModel)]="motCle"/>
+      <button class="btn btn-primary" (click)="chercher()">Chercher</button>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th> <th>Nom</th> <th>Prénom</th> <th>Email</th>
+        </tr>
+        <tr *ngFor="let c of pageContacts?.content">
+          <td>{{c.id}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.prenom}}</td>
+          <td>{{c.email}}</td>
+          <td>
+            <!--a(click)="onEditContact(c.id)" class="clickable"> Modifier </a-->
+
+            <a (click)="onEditContact(c.id)" class="but btn btn-primary a-btn-slide-text">
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              <span><strong>Edit</strong></span>
+            </a>
+          </td>
+
+          <td>
+            <!--a(click)="onEditContact(c.id)" class="clickable"> Modifier </a-->
+
+
+
+
+            <a (click)="openPopup(c)" class="but btn btn-primary a-btn-slide-text">
+              <span class="glyphicon glyphicon-delete" aria-hidden="true"></span>
+              <span><strong>Delete</strong></span>
+            </a>
+          </td>
+
+        </tr>
+
+      </table>
+
+
+      <div class="row">
+        <ul class="pagination">
+          <li class="page-item" [ngClass]="{'active':i==currentpage}" *ngFor="let p of pages; let i=index" >
+            <a class="clickable page-link" (click)="gotoPage(i)">{{i}}</a>
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
